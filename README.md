@@ -25,8 +25,35 @@
 
 
 
+ # MY CLI LOOK LIKE THIS (USED THIS SKELTON WITH THE HELP OF TYPER )
+
+ ai-devops-copilot
+ ├── git
+ │    └── commit
+ │    └── undo
+ │
+ ├── docker
+ │    └── list
+ │    └── stop
+ │
+ ├── linux
+ │    └── explain
+ │    └── generate
+ │
+ └── ai
+      └── suggest
+      └── tips
 
 
+
+# till now how to use it 
+
+python main.py set-mode 1
+python main.py explain "ls -a"
+
+
+✅ First set mode (online = 1, offline = 0)
+✅ Then run any command (here, explain)
 
 
 

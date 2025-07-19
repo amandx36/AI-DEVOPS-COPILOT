@@ -1,22 +1,31 @@
-import sys                # module to read the text from the terminal after the python main.py "ls -a "
-
-mode = int(input("Enter 1 for the online mode else 0 for the offline mode "))
-# use ollama for the local run and also open ai for the online brother 
-
-if mode == 0 :
-    from commands_offline import explain_command_offline as explain_command
-
-else:
-    from commands_online import explain_command_online as explain_command
 
 
-# cli based input and the output broo !!! 
+# # use ollama for the local run and also open ai for the online brother 
 
-checker = input("Enter command type (e.g. explain): ")
 
-if checker == "explain":
-    cmd = input("Enter the command to explain: ")
-    output = explain_command(cmd)
-    print(output)
-else:
-    print("Unknown command !! ")
+import typer       #  for the cli integration !! 
+
+app = typer.Typer()      # module to read the text from the terminal after the python main.py "ls -a "
+
+
+@app.command()
+def main(
+    mode: int = typer.Option(..., prompt="select the modoe 1 for online and 0 for offline "),
+    task: str = typer.Option(..., prompt="what you have to perform example [explain ,  adding !!!    ]"),
+):
+    if mode == 1:
+        print("Enter into the online mode ")
+        from commands_online import explain_command_online as explain_command    # if online mode than import the explain online command module 
+    else:
+        print("Entered into the offline mode ")
+        from commands_offline import explain_command_offline as explain_command     # else load  explain the offline mode command 
+
+    if task == "explain":
+        cmd = typer.prompt("command to explain?")
+        out = explain_command(cmd)              # to take the input from the user 
+        print(out)
+    else:
+        print("task not found.. only 'explain' works rn")
+
+if __name__ == "__main__":
+    app()
