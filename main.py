@@ -26,7 +26,7 @@ app = typer.Typer()      # module to read the text from the terminal after the p
 @app.command()
 def main(
     mode: int = typer.Option(..., prompt="select the modoe 1 for online , 0 for offline "),
-    task: str = typer.Option(..., prompt="what you have to perform example [explain ,generate ,system_info , dev_tips ,docker_containers !!!    ]"),
+    task: str = typer.Option(..., prompt="what you have to perform example [explain ,generate ,system_info , dev_tips ,docker_containers,docker_images !!!    ]"),
 ):
     if mode == 1:
         print("Enter into the online mode ")
