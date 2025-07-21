@@ -14,6 +14,8 @@ from Utility_functions.response_generate_offline import response_generator_offli
 from Utility_functions.response_generator_online import response_generator_online        # for generating the response online !!!!! 
 from system_info import get_system_information           # importing the function for getting the system information 
 from Utility_functions.daily_tips import  get_daily_tips            # importing for getting the daily tips brother !!! 
+from Utility_functions.docker_helper import show_containers   # importing the docker container functions 
+from Utility_functions.docker_helper import show_docker_images   # importing the docker images 
 
 
 
@@ -24,7 +26,7 @@ app = typer.Typer()      # module to read the text from the terminal after the p
 @app.command()
 def main(
     mode: int = typer.Option(..., prompt="select the modoe 1 for online , 0 for offline "),
-    task: str = typer.Option(..., prompt="what you have to perform example [explain ,generate ,system_info , dev_tips  !!!    ]"),
+    task: str = typer.Option(..., prompt="what you have to perform example [explain ,generate ,system_info , dev_tips ,docker_containers !!!    ]"),
 ):
     if mode == 1:
         print("Enter into the online mode ")
@@ -59,7 +61,13 @@ def main(
         print("\n")
         print(tipsss)
 
-    
+    elif  task == "docker_containers":
+        show = show_containers()
+        print(show)
+
+    elif task == "docker_images":
+        show = show_docker_images()
+        print(show)
    
     
     else:
