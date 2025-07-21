@@ -28,3 +28,26 @@ def show_docker_images():
 
     else :
         return "No Running Docker images !! , Run First !! "
+    
+
+
+
+
+# this function help you to run the specific docker image !! 
+
+def docker_run(image_name):
+    try:
+        result = subprocess.run(['docker', 'run', '-d', image_name], capture_output=True, text=True)
+        return result.stdout or f"Container for {image_name} started."
+    except Exception as e:
+        return f"docker run failed: {str(e)}"
+
+#this function help you to stop the specific docker image !! 
+
+
+def docker_stop(container_id):
+    try:
+        result = subprocess.run(['docker', 'stop', container_id], capture_output=True, text=True)
+        return result.stdout or f"Container {container_id} stopped."
+    except Exception as e:
+        return f"docker stop failed: {str(e)}"
