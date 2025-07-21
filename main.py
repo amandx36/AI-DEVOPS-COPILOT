@@ -13,7 +13,7 @@ from Utility_functions.commands_explain_offline import explain_command_offline  
 from Utility_functions.response_generate_offline import response_generator_offline       # for generating the response offline !!! 
 from Utility_functions.response_generator_online import response_generator_online        # for generating the response online !!!!! 
 from system_info import get_system_information           # importing the function for getting the system information 
-
+from Utility_functions.daily_tips import  get_daily_tips            # importing for getting the daily tips brother !!! 
 
 
 
@@ -24,7 +24,7 @@ app = typer.Typer()      # module to read the text from the terminal after the p
 @app.command()
 def main(
     mode: int = typer.Option(..., prompt="select the modoe 1 for online , 0 for offline "),
-    task: str = typer.Option(..., prompt="what you have to perform example [explain ,generate ,system_info   !!!    ]"),
+    task: str = typer.Option(..., prompt="what you have to perform example [explain ,generate ,system_info , dev_tips  !!!    ]"),
 ):
     if mode == 1:
         print("Enter into the online mode ")
@@ -52,6 +52,12 @@ def main(
     elif task =="system_info" :                     # for getting the system information   !!! 
         show = get_system_information()
         print(show)
+
+    elif task == "dev_tips":
+        tipsss = get_daily_tips()
+        print(tipsss)
+        print("\n")
+        print(tipsss)
 
     
    
