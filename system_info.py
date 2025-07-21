@@ -12,7 +12,7 @@ def get_system_information():
    
     swap_memory = psutil.swap_memory().percent    # use to get the swap memory usage 
 
-    information  =  f"CPU usage of your system is {cpu_usage}%, \n Memory Usage is {memory_usage}%, \n Disk usage is {disk_usage}%, \n  Number of CPU cores in your system is {cpu_cores}, \n Swap memory usage is {swap_memory}%  "
+    information  =  f"\n \nCPU usage of your system is {cpu_usage}%, \nMemory Usage is {memory_usage}%, \nDisk usage is {disk_usage}%, \n Number of CPU cores in your system is {cpu_cores}, \n Swap memory usage is {swap_memory}%  "
     
     
     

@@ -3,14 +3,16 @@
 # # use ollama for the local run and also open ai for the online brother 
 
 
-import system_info
 import typer       #  for the cli integration !! 
-from commands_explain_online import explain_command_online     # if online mode than import the explain online command module
-from commands_explain_offline import explain_command_offline            # else load  explain the offline mode command
-from response_generate_offline import response_generator_offline       # for generating the response offline !!! 
-from response_generator_online import response_generator_online        # for generating the response online !!!!! 
-from system_info import get_system_information           # importing the function for getting the system information 
 
+
+# our files inside the another files now we have to import with the folder_name.
+
+from Utility_functions.commands_explain_online import explain_command_online     # if online mode than import the explain online command module
+from Utility_functions.commands_explain_offline import explain_command_offline            # else load  explain the offline mode command
+from Utility_functions.response_generate_offline import response_generator_offline       # for generating the response offline !!! 
+from Utility_functions.response_generator_online import response_generator_online        # for generating the response online !!!!! 
+from system_info import get_system_information           # importing the function for getting the system information 
 
 
 
