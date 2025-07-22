@@ -9,7 +9,7 @@ import subprocess
 def git_status():
     result  = subprocess.run(['git','status'],capture_output= True , text = True)                # capture_output is used to capture the command output instead of printing it [command is subprocess ]      TEXT = True is used to convert the output that is byte  into the text 
     if result.stdout:
-        return result
+        return result.stdout
     else:
         return "Something Went Wrong With the git Status !!"
     
