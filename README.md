@@ -1,19 +1,182 @@
 # AI DevOps Copilot
 
-## 🚀 Features available til now !!!  
 
-✅ **generate [task]** → suggest command/script for a given task
+🚀 N3x-Synth4r
 
-✅ **explain [command]** → explain a command with examples
+The Swiss Army Knife CLI for Developers!
+🧠 Explain commands, generate code, supercharge Git & Docker, get dev tips—all in a sleek, AI-powered terminal interface. Run entirely offline with Ollama or tap into online magic with OpenAI!
+✨ Features
 
-✅ **sysinfo** → show CPU, Memory, Disk usage info
+    🧠 Explain Commands: Instantly understand Linux/CLI/code commands (locally or via OpenAI).
 
-✅ **docker ps/info** → list docker containers & info
+    ⚡ AI Code Generation: Create scripts on demand—works offline (Ollama) or online (OpenAI).
 
-✅ **git helper** → generate git commands for tasks (e.g. how to add file into the staging area)
+    💻 System Info: Print detailed device/system information.
 
-✅ **daily tip** → show a DevOps tip daily (AI-generated or static)
+    💡 Dev Tips: Boost your skills with daily developer wisdom.
 
+    🐳 Docker Controls: List, run, or stop containers and images.
+
+    🔧 Git Automation: Status, add, commit, push, pull—right from the CLI!
+
+    🌗 Offline & Online: Seamlessly switch between local (LLM/Ollama) or SaaS (OpenAI) modes.
+
+#  🛠️ Installation
+
+Clone & set up:
+
+bash
+
+
+
+git clone https://github.com/amandx36/AI-DEVOPS-COPILOT
+cd N3xthar-Voryx
+python -m venv .venv
+source .venv/bin/activate        # On Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+
+
+
+
+# 🦙 For Offline Mode (Ollama)
+
+    Install Ollama
+
+    Download a local model (for example: llama3):
+
+    bash
+    ollama pull llama3
+
+    Start Ollama before starting the CLI!
+
+# 🤖 For Online Mode (OpenAI)
+
+    Get an OpenAI API Key
+
+    Set it in your environment:
+
+    bash
+    export OPENAI_API_KEY=your-openai-api-key
+
+# 🚦 Usage
+
+bash
+python copilot_ai.py
+
+Interact via the epic CLI menu! Example session:
+
+text
+╔══════════════════════════════════════════════════╗
+║           🌍 Select Operational Mode 🌐         ║
+╠══════════════════════════════════════════════════╣
+║  1️⃣  Online Mode    - Connect to the internet  ║
+║  0️⃣  Offline Mode   - Stay local (no network)  ║
+╚══════════════════════════════════════════════════╝
+👉  Enter 1 for Online, or 0 for Offline: 1
+
+╔════════════════════════════════════════════════════════════════════════╗
+║                🚀 Choose Your Command Superpower! 🚀                 ║
+╠════════════════════════════════════════════════════════════════════════╣
+║ 🧠  explain            ➡️   Code/command explanations               ║
+║ ⚡  generate           ➡️   Instantly generate code/files           ║
+║ 💻  system_info        ➡️   Reveal system information               ║
+║ 💡  dev_tips           ➡️   Get clutch dev tips                    ║
+║ 🐳  docker_containers  ➡️   List Docker containers                  ║
+║ 🖼️  docker_images      ➡️   List Docker images                      ║
+║ 🚀  docker_run         ➡️   Launch a Docker container               ║
+║ 🛑  docker_stop        ➡️   Stop a Docker container                 ║
+║ 🔍  git_status         ➡️   Show Git working status                 ║
+║ ➕  git_add            ➡️   Add files to Git staging area           ║
+║ 💾  git_commit         ➡️   Commit changes to Git                   ║
+║ ⤴️  git_push           ➡️   Push to remote repository               ║
+║ ⤵️  git_pull           ➡️   Pull latest from remote                 ║
+╚════════════════════════════════════════════════════════════════════════╝
+
+Just type your choice and follow the prompts!
+📦 Folders & Structure
+
+text
+
+N3xthar-Voryx/
+├── main.py
+├── Utility_functions/
+│   ├── commands_explain_online.py
+│   ├── commands_explain_offline.py
+│   ├── response_generator_online.py
+│   ├── response_generator_offline.py
+│   ├── git_helper.py
+│   ├── docker_helper.py
+│   └── daily_tips.py
+├── system_info.py
+├── requirements.txt
+└── ...
+
+🐳 Docker Integration
+
+Make sure Docker is installed and running.
+
+    List containers/images
+
+    Launch or stop containers
+    All via this CLI!
+
+🤝 Contributions
+
+Pull requests & issues welcome!
+
+    Open an issue for bugs or ideas
+
+    Fork, create a branch, make improvements, and open a PR 🚀
+
+👤 Author
+
+Aman Deep (N3xthar-Voryx)
+GitHub - LinkedIn
+📄 License
+
+MIT License
+
+💡 Pro tip: Star this repo if you like it!
+
+Happy hacking! 🦾
+
+    Copy, share, and rule your terminal life!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#
 
 
 # PACKAGES  I USED  

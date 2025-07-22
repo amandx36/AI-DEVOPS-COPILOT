@@ -1,3 +1,9 @@
 openai 
 python-dotenv
 colorama
+typer[all]
+requests
+docker
+openai
+typer
+# ollama-py    This is the large file if you want the cli run offline !! 
