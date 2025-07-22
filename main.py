@@ -104,7 +104,7 @@ def main(
    
     
     elif task == "docker_stop":
-        doc_stop_image_name = typer.prompt("Enter the  Image to Stop :)")
+        doc_stop_image_name = typer.prompt("Enter the  Image ID to Stop :)")
         stopper = docker_stop(doc_stop_image_name)
         print(stopper)
 
