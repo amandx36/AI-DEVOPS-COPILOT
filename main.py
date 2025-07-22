@@ -28,8 +28,43 @@ app = typer.Typer()      # module to read the text from the terminal after the p
 
 @app.command()
 def main(
-    mode: int = typer.Option(..., prompt="select the modoe 1 for online , 0 for offline "),
-    task: str = typer.Option(..., prompt="what you have to perform example ['explain' ,'generate' ,'system_info' , 'dev_tips' , 'docker_containers' , 'docker_images','docker_run','docker_stop' , 'git_status' , 'git_add' , 'git_commit' , 'git_push' , 'git_pull' , ''   ]"),
+    mode: int = typer.Option(
+        ..., 
+        prompt=(
+            "\n"
+            "╔══════════════════════════════════════════════════╗\n"
+            "║           🌍 Select Operational Mode 🌐         ║\n"
+            "╠══════════════════════════════════════════════════╣\n"
+            "║  1️⃣  Online Mode    - Connect to the internet  ║\n"
+            "║  0️⃣  Offline Mode   - Stay local (no network)  ║\n"
+            "╚══════════════════════════════════════════════════╝\n"
+            "👉  Enter 1 for Online, or 0 for Offline: "
+        )
+    ),
+    task: str = typer.Option(
+        ...,
+        prompt=(
+            "\n"
+            "╔════════════════════════════════════════════════════════════════════════╗\n"
+            "║                🚀 Choose Your Command Superpower! 🚀                 ║\n"
+            "╠════════════════════════════════════════════════════════════════════════╣\n"
+            "║ 🧠  explain            ➡️   Code/command explanations               ║\n"
+            "║ ⚡  generate           ➡️   Instantly generate code/files           ║\n"
+            "║ 💻  system_info        ➡️   Reveal system information               ║\n"
+            "║ 💡  dev_tips           ➡️   Get clutch dev tips                    ║\n"
+            "║ 🐳  docker_containers  ➡️   List Docker containers                  ║\n"
+            "║ 🖼️  docker_images      ➡️   List Docker images                      ║\n"
+            "║ 🚀  docker_run         ➡️   Launch a Docker container               ║\n"
+            "║ 🛑  docker_stop        ➡️   Stop a Docker container                 ║\n"
+            "║ 🔍  git_status         ➡️   Show Git working status                 ║\n"
+            "║ ➕  git_add            ➡️   Add files to Git staging area           ║\n"
+            "║ 💾  git_commit         ➡️   Commit changes to Git                   ║\n"
+            "║ ⤴️  git_push           ➡️   Push to remote repository               ║\n"
+            "║ ⤵️  git_pull           ➡️   Pull latest from remote                 ║\n"
+            "╚════════════════════════════════════════════════════════════════════════╝\n"
+            "👉  Type your choice (exactly as shown above): "
+        )
+    ),
 ):
     if mode == 1:
         print("Enter into the online mode ")
