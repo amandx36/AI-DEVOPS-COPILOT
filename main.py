@@ -3,6 +3,7 @@
 # # use ollama for the local run and also open ai for the online brother 
 
 
+from re import S
 from Utility_functions.git_helper import git_status
 import typer       #  for the cli integration !! 
 
@@ -15,9 +16,10 @@ from Utility_functions.response_generate_offline import response_generator_offli
 from Utility_functions.response_generator_online import response_generator_online        # for generating the response online !!!!! 
 from system_info import get_system_information           # importing the function for getting the system information 
 from Utility_functions.daily_tips import  get_daily_tips            # importing for getting the daily tips brother !!! 
-from Utility_functions.docker_helper import show_containers   # importing the docker container functions 
+from Utility_functions.docker_helper import docker_run, show_containers , show_docker_images , docker_stop   # importing the docker container functions 
 from Utility_functions.docker_helper import show_docker_images   # importing the docker images 
 from Utility_functions.git_helper import git_add ,git_status , git_commit   #importing the git_helper file's functions !!! 
+from Utility_functions.banner import show_banner
 
 
 
@@ -27,7 +29,7 @@ app = typer.Typer()      # module to read the text from the terminal after the p
 @app.command()
 def main(
     mode: int = typer.Option(..., prompt="select the modoe 1 for online , 0 for offline "),
-    task: str = typer.Option(..., prompt="what you have to perform example [explain ,generate ,system_info , dev_tips ,docker_containers,docker_images , git_status , git_add , git_commit!!!    ]"),
+    task: str = typer.Option(..., prompt="what you have to perform example ['explain' ,'generate' ,'system_info' , 'dev_tips' , 'docker_containers' , 'docker_images','docker_run','docker_stop' , 'git_status' , 'git_add' , 'git_commit' , 'git_push' , 'git_pull' , ''   ]"),
 ):
     if mode == 1:
         print("Enter into the online mode ")
@@ -76,16 +78,41 @@ def main(
     elif task =="git_add":
         file = typer.prompt("Enter the file to add !! ")
         print(git_add(file))
+
+
+    elif task == "git_pull":
+        out = git_pull()
+        print(out)
     
+
+    elif task == "git_push":
+        out = git_push()
+        print(out)
+
+
     elif task == "git_commit":
         message = typer.prompt("Enter the message to commit !!! ")
         print(git_commit(message))
+
+
+
+    
+    elif task == "docker_run":
+        doc_image_name = typer.prompt("Enter the docker image name :)")
+        runner = docker_run(doc_image_name);
+        print(runner)
    
     
+    elif task == "docker_stop":
+        doc_stop_image_name = typer.prompt("Enter the  Image to Stop :)")
+        stopper = docker_stop(doc_stop_image_name)
+        print(stopper)
+
     else:
         print("task not found.. Available task [explain , generate , system_info]")
 
 
 
 if __name__ == "__main__":
+    show_banner()
     app()

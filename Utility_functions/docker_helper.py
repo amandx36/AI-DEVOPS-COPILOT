@@ -20,7 +20,7 @@ def show_containers():
 # function to list all the running docker images !!! 
 
 def show_docker_images():
-    result = subprocess.run(['docker','images'], capture_output = True , text= True )
+    result = subprocess.run(['sudo','docker','images'], capture_output = True , text= True )
 
 
     if result.stdout:
@@ -37,7 +37,7 @@ def show_docker_images():
 
 def docker_run(image_name):
     try:
-        result = subprocess.run(['docker', 'run', '-d', image_name], capture_output=True, text=True)
+        result = subprocess.run(['sudo','docker', 'run', '-d', image_name], capture_output=True, text=True)
         return result.stdout or f"Container for {image_name} started."
     except Exception as e:
         return f"docker run failed: {str(e)}"
@@ -47,7 +47,7 @@ def docker_run(image_name):
 
 def docker_stop(container_id):
     try:
-        result = subprocess.run(['docker', 'stop', container_id], capture_output=True, text=True)
+        result = subprocess.run(['sudo','docker', 'stop', container_id], capture_output=True, text=True)
         return result.stdout or f"Container {container_id} stopped."
     except Exception as e:
         return f"docker stop failed: {str(e)}"
